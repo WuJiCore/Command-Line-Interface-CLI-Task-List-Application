@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Edit</title>
+</head>
+<body>
+    <h2>Request Edit for {{ object }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <textarea name="reason" placeholder="Reason for edit"></textarea>
+        <button type="submit">Submit Request</button>
+    </form>
+</body>
+</html>

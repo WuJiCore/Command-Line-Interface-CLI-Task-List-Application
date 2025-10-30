@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Data</title>
+</head>
+<body>
+    <h2>Your Data</h2>
+
+    <h3>Sales</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+        {% for sale in sales %}
+        <tr>
+            <td>{{ sale.date }}</td>
+            <td>{{ sale.product }}</td>
+            <td>{{ sale.quantity }}</td>
+            <td>{{ sale.price }}</td>
+            <td>{{ sale.total }}</td>
+            <td><a href="{% url 'request_edit' model_name='sale' object_id=sale.id %}">Request Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Purchases</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+        {% for purchase in purchases %}
+        <tr>
+            <td>{{ purchase.date }}</td>
+            <td>{{ purchase.product }}</td>
+            <td>{{ purchase.quantity }}</td>
+            <td>{{ purchase.price }}</td>
+            <td>{{ purchase.total }}</td>
+            <td><a href="{% url 'request_edit' model_name='purchase' object_id=purchase.id %}">Request Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Expenses</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.description }}</td>
+            <td>{{ expense.amount }}</td>
+            <td><a href="{% url 'request_edit' model_name='expense' object_id=expense.id %}">Request Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+
+    <h3>Pending Edit Requests</h3>
+    <table>
+        <tr>
+            <th>Employee</th>
+            <th>Record</th>
+            <th>Reason</th>
+            <th>Requested Changes</th>
+            <th>Action</th>
+        </tr>
+        {% for request in edit_requests %}
+        <tr>
+            <td>{{ request.employee.username }}</td>
+            <td>{{ request.content_object }}</td>
+            <td>{{ request.reason }}</td>
+            <td>{{ request.requested_changes }}</td>
+            <td>
+                <a href="{% url 'approve_request' request.id %}">Approve</a>
+                <a href="{% url 'deny_request' request.id %}">Deny</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
